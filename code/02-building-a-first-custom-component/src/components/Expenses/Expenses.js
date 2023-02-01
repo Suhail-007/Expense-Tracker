@@ -11,14 +11,20 @@ export default function Expenses(props) {
     setFilteredYear(selectValue);
   }
 
+  const renderExpenses = function(arr) {
+    return arr.map(expense => <ExpenseItem
+                      title={expense.title}
+                      price={expense.amount}
+                      date={expense.date}
+                      key={expense.id}   />);
+  }
+
   return (
     <Card className='expenses'>
       <div>
         <ExpensesFilter selectedYear={filteredYear} onSelectYear={onSelectYearHandler}/>
       </div>
-      <ExpenseItem title={props.item[0].title} price={props.item[0].amount} date={props.item[0].date} />
-      <ExpenseItem title={props.item[1].title} price={props.item[1].amount} date={props.item[1].date} />
-      <ExpenseItem title={props.item[2].title} price={props.item[2].amount} date={props.item[2].date} />
+      {renderExpenses(props.items)}
     </Card>
   )
 }
