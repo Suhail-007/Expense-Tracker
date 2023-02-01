@@ -3,7 +3,7 @@ import React from 'react';
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
-  
+
   const onSelectValue = function(e) {
     props.onSelectYear(e.target.value);
   }

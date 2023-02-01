@@ -60,6 +60,11 @@ const ExpenseForm = (props) => {
       dateValue: ''
     })
   }
+  
+  const date = new Date();
+  const maxYear = date.getFullYear();
+  const maxMonth = +date.getMonth().toLocaleString('en-Us', {day: '2-digit'}) +1;
+  const maxDay = date.getDate();
 
   return (
     <form onSubmit={addValues}>
@@ -74,7 +79,7 @@ const ExpenseForm = (props) => {
       </div>
       <div className='new-expense__control'>
         <label>Title</label>
-        <input value={userInput.dateValue} onChange={dateChangeHandler} type='date' min='2021-01-01' max='2023-02-01' />
+        <input value={userInput.dateValue} onChange={dateChangeHandler} type='date' min='2019-01-01' max={`${maxYear}-${maxMonth}-${maxDay}`} />
       </div>
     </div>
     <div className='new-expense__actions'>

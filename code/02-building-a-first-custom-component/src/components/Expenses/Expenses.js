@@ -9,7 +9,10 @@ export default function Expenses(props) {
 
   const onSelectYearHandler = function(selectValue) {
     setFilteredYear(selectValue);
+
   }
+  
+  const filteredArr = props.items.filter(expense => expense.date.getFullYear() === +filteredYear);
 
   const renderExpenses = function(arr) {
     return arr.map(expense => <ExpenseItem
@@ -24,7 +27,7 @@ export default function Expenses(props) {
       <div>
         <ExpensesFilter selectedYear={filteredYear} onSelectYear={onSelectYearHandler}/>
       </div>
-      {renderExpenses(props.items)}
+      {renderExpenses(filteredArr)}
     </Card>
   )
 }
