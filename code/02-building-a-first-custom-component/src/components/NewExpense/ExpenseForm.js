@@ -60,13 +60,13 @@ const ExpenseForm = (props) => {
       dateValue: ''
     })
   }
-  
+
   const date = new Date();
   const maxYear = date.getFullYear();
-  const month = +date.getMonth() +1;
-  const maxMonth = month < 10 ? '0'+month : month;
+  const month = +date.getMonth() + 1;
+  const maxMonth = month < 10 ? '0' + month : month;
   const maxDay = date.toLocaleString('en-Us', { day: '2-digit' });
-  
+
   return (
     <form onSubmit={addValues}>
     <div className='new-expense__controls'>
