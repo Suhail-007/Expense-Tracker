@@ -67,6 +67,7 @@ const ExpenseForm = (props) => {
   const maxMonth = month < 10 ? '0' + month : month;
   const maxDay = date.toLocaleString('en-Us', { day: '2-digit' });
 
+
   return (
     <form onSubmit={addValues}>
     <div className='new-expense__controls'>
@@ -84,6 +85,7 @@ const ExpenseForm = (props) => {
       </div>
     </div>
     <div className='new-expense__actions'>
+      <button onClick={props.onCancel} type='button'>Cancel</button>
       <button type='submit'>Add Expense</button>
     </div>
   </form>
