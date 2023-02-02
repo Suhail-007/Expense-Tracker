@@ -13,14 +13,12 @@ export default function Expenses(props) {
   const filteredArr = props.items.filter(expense => expense.date.getFullYear() === +filteredYear);
 
   return (
-    <li>
-      <Card className='expenses'>
-        <div>
-          <ExpensesFilter selectedYear={filteredYear} onSelectYear={onSelectYearHandler}/>
-        </div>
-        <ExpensesChart expenses={filteredArr} />
-        <ExpenseList items={filteredArr} />
-      </Card>
-    </li>
+    <Card className='expenses'>
+      <div>
+        <ExpensesFilter selectedYear={filteredYear} onSelectYear={onSelectYearHandler}/>
+      </div>
+      <ExpensesChart expenses={filteredArr} />
+      <ExpenseList items={filteredArr} />
+    </Card>
   )
 }
