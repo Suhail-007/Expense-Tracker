@@ -3,15 +3,19 @@ import './Chart.css';
 
 export default function Chart(props) {
 
+  // const dataValues = props.dataPoints.map(dataPoint => dataPoint.value);
+  
   const dataValues = props.dataPoints.map(dataPoint => dataPoint.value);
-  const maxValue = Math.max(...dataValues);
-console.log(dataValues);
+  
+  const yearTotal = dataValues.reduce((curr, accu) => curr+accu, 0);
+  
+  // const maxValue = Math.max(...dataValues);
 
   const chartBars = props.dataPoints.map(dataPoint =>
                     <ChartBar
                       key={dataPoint.label}
                       value={dataPoint.value}
-                      maxValue={maxValue}
+                      maxValue={yearTotal}
                       label={dataPoint.label}
                     />)
 
